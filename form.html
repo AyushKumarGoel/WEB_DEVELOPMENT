@@ -1,37 +1,166 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>REGISTRATION FORM</title>
-        <body background="https://wallpaperaccess.com/full/3927779.jpg">
-            <form border = "1">
-            <pre  style="color:rgb(42, 118, 118)" align="center"><b><u><h1>STUDENT'S REGISTRATION FORM</h1></u></b></pre>
-            <pre style="text-align:right;""><h3><b><U>DATE|<input type="date"></U></b>    </h3></pre><hr>
-            <h3>PERSONAL INFORMATION</h3><hr>
-            <pre><b><h3>NAME<input type="text" placeholder="FULL NAME" size="215"></h3></b></pre>
-            <pre><b><h3>DATE OF BIRTH <input type="date"></h3></b></pre>
+
+<head>
+    <title>Page Title</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .dark {
+        background-color: black;
+        color: white;
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 99%;
+            padding: 12px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            margin: 10px;
+            background-color:rgb(114, 114, 114);
+        }
+        input[type="submit"] {
+        background-color: #1a4f48;
+        color: white;
+        border-radius: 4px;
+        width: 200px;
+        padding: 20px 20px 20px 20px;
+        border: 1px solid;
+        text-shadow: 10px;
+        font-size: 25px;
+        cursor: pointer;
+        text-align: center;
+
+    }
+    }
+
+    .light {
+        background-color: white;
+        color: black;
+    }
+
+    body {
+        font-size: 17px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 100px;
+        padding: 8px;
+        border: solid;
+
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    input[type="number"],
+    select,
+    textarea {
+        width: 99%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 10px;
+    }
+
+    fieldset {
+        border-color: #fff;
+        border: 1px solid #ccc;
+    }
+
+    #male {
+        text-align: left;
+    }
+
+    #female {
+        text-align: right;
+    }
+
+    input[type="submit"] {
+        background-color: #4daea1;
+        color: rgb(0, 0, 0);
+        border-radius: 4px;
+        width: 200px;
+        padding: 20px 20px 20px 20px;
+        border: 1px solid;
+        text-shadow: 10px;
+        font-size: 25px;
+        cursor: pointer;
+        text-align: center;
+
+    }
+
+    .container {
+        background-color: #f2f2f2;
+        padding: 5px 20px 15px 20px;
+        border: 1px solid lightgray;
+
+    }
+
+    input[type="submit"]:hover {
+        background-color: #4caf84;
+    }
+</style>
+
+<body>
+
+    <button style="text-align: right;position: fixed; right: 10px; top: 10px" id="modeBtn">Mode</button>
+    <script>
+        let modeBtn = document.querySelector("#modeBtn");
+        let body = document.querySelector('body');
+        let currmode = 'light';
+
+        modeBtn.addEventListener("click", () => {
+            if (currmode === "light") {
+                currmode = "dark";
+                body.classList.add("dark");
+                body.classList.remove("light");
+            } else {
+                currmode = "light";
+                body.classList.add("light");
+                body.classList.remove("dark");
+            }
+        })
+    </script>
+    <form class="form">
+        <span>
+            <h1 style="text-align:center;"><b>PAYMENT FORM</b></h1>
             <hr>
-            <h3>CONTACT INFORMATION</h3><hr>
-            <pre><h3>ADDRESS <input type="text" placeholder="ADDRESS" size="209"></h3></pre>
-            <pre><h3>CITY     <input type="text" placeholder="CITY" size="80">                   PROVINCE/STATE <input type="text" placeholder="STATE" size="79"></input></h3></pre>
-            <pre><h3>ZIP CODE <input type="text" placeholder="PIN-CODE" size="80">                   COUNTRY        <input type="text" placeholder="COUNTRY" size="79"></input></h3></pre>
-            <pre><h3>PHONE    <input type="text" placeholder="PHONE / MOBILE  NUMBER" size="80">                   E-MAIL         <input type="text" placeholder="E-MAIL" size="79"></input></h3></pre>
-            <pre><B>ADMISSION TYPE</B>     <input type="checkbox">DIRECT    <input type="checkbox">COUNSELING    <input type="checkbox">PMSRR    <input type="checkbox">EWS              </pre><hr>
-            <h3>COURSE INFORMATION</h3><hr>
-            <pre><B>COURSE NAME</B>     <input type="checkbox">B.TECH    <input type="checkbox">BSc    <input type="checkbox">B.Com    <input type="checkbox">BCA              </pre>
-            <pre><B>PAYMENT DETAIL</B>   <input type="checkbox">CASH    <input type="checkbox">NIFT    <input type="checkbox">CHEQUE    <input type="checkbox">CREDIT/DEBIT CARD              </pre>
-            <pre><h3>COMMENTS   <input type="text" size="207"></h3></pre>
-            </form>
-            <table border="1">
-                <tbody>
-                    <tr>
-                        <td><pre>                 
-                            
-            STUDENT'S SIGNATURE              
-                            
-                        </pre></td>
-                        <td><pre>                    VALIDATED BY                   </pre></td>
-                    </tr>    
-                </tbody>
-            </table>
-        </body>
-    </head>
+        </span>
+        <div>
+            <h2><b>User Details</b></h2>
+            <p>Name: <input type="text" required name="name" value="FULL NAME"></p>
+            <fieldset>
+                <legend>Gender</legend>
+                <p><input type=radio required name="gender" id="male">Male<input type=radio required name="gender"
+                        id="female">Female</p>
+            </fieldset>
+            <p>Address: <textarea required name="address" height="10px" width="10px" value="ADDRESS"></textarea> </p>
+            <p>Email: <input type="email" id="email" name="email" required value="E-mail"></p>
+            <p>Pincode<input type="number" required name="pincode" id="pincode"></p>
+        </div>
+        <div>
+            <h2><b>Payment Details</b></h2>
+            <p>Card Type:
+                <select name="card_type" id="card_type">
+                    <option value="">--select your card type</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Master_Card">Master Card</option>
+                </select>
+            </p>
+            <p>Card Number<input type="number" name="number" id="number"></p>
+            <p>Expiration Date: <input type="date" name="date" id="date"></p>
+            <p>CVV<input type="password" name="cvv" id="cvv" required minlength="3" maxlength="3" size="10"></p>
+            <button style="background-color: black;"><input type="submit" name="submit" id="submit" onclick="alert('Form Submitted')"></button>
+        </div>
+
+</body>
+
 </html>
